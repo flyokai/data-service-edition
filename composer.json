@@ -1,0 +1,91 @@
+{
+    "name": "flyokai/data-service-edition",
+    "description": "Flyokai project template for socket-based async data services — channel dispatching, OAuth handshake, request routing, plus everything in webapi-edition.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sergey boyko",
+            "email": "sergey@flyokai.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "flyokai/application": "dev-dev",
+        "flyokai/amphp-injector": "dev-dev",
+        "flyokai/revolt-event-loop": "dev-dev",
+        "flyokai/data-mate": "dev-dev",
+        "flyokai/composition": "dev-dev",
+        "flyokai/generic": "dev-dev",
+        "flyokai/misc": "dev-dev",
+        "flyokai/db-schema": "dev-dev",
+        "flyokai/search-criteria": "dev-dev",
+        "flyokai/symfony-console": "dev-dev",
+        "flyokai/laminas-db": "dev-dev",
+        "flyokai/laminas-db-driver-amp": "dev-dev",
+        "flyokai/laminas-db-driver-async": "dev-dev",
+        "flyokai/laminas-db-bulk-update": "dev-dev",
+        "flyokai/zend-db-sql-insertmultiple": "dev-dev",
+        "flyokai/amp-mate": "dev-dev",
+        "flyokai/amp-data-pipeline": "dev-dev",
+        "flyokai/amp-csv-reader": "dev-dev",
+        "flyokai/amp-opensearch": "dev-dev",
+        "flyokai/amp-channel-dispatcher": "dev-dev",
+        "flyokai/user": "dev-dev",
+        "flyokai/oauth-server": "dev-dev",
+        "flyokai/indexer": "dev-dev",
+        "flyokai/data-service": "dev-dev",
+        "flyokai/data-service-message": "dev-dev",
+        "flyokai/flyokai": "dev-dev"
+    },
+    "repositories": [
+        { "name": "flyokai-flyokai",                      "type": "git", "url": "git@github.fly:flyokai/flyokai.git" },
+        { "name": "flyokai-application",                  "type": "git", "url": "git@github.fly:flyokai/application.git" },
+        { "name": "flyokai-amphp-injector",               "type": "git", "url": "git@github.fly:flyokai/amphp-injector.git" },
+        { "name": "flyokai-revolt-event-loop",            "type": "git", "url": "git@github.fly:flyokai/revolt-event-loop.git" },
+        { "name": "flyokai-data-mate",                    "type": "git", "url": "git@github.fly:flyokai/data-mate.git" },
+        { "name": "flyokai-composition",                  "type": "git", "url": "git@github.fly:flyokai/composition.git" },
+        { "name": "flyokai-generic",                      "type": "git", "url": "git@github.fly:flyokai/generic.git" },
+        { "name": "flyokai-misc",                         "type": "git", "url": "git@github.fly:flyokai/misc.git" },
+        { "name": "flyokai-db-schema",                    "type": "git", "url": "git@github.fly:flyokai/db-schema.git" },
+        { "name": "flyokai-search-criteria",              "type": "git", "url": "git@github.fly:flyokai/search-criteria.git" },
+        { "name": "flyokai-symfony-console",              "type": "git", "url": "git@github.fly:flyokai/symfony-console.git" },
+        { "name": "flyokai-laminas-db",                   "type": "git", "url": "git@github.fly:flyokai/laminas-db.git" },
+        { "name": "flyokai-laminas-db-driver-amp",        "type": "git", "url": "git@github.fly:flyokai/laminas-db-driver-amp.git" },
+        { "name": "flyokai-laminas-db-driver-async",      "type": "git", "url": "git@github.fly:flyokai/laminas-db-driver-async.git" },
+        { "name": "flyokai-laminas-db-bulk-update",       "type": "git", "url": "git@github.fly:flyokai/laminas-db-bulk-update.git" },
+        { "name": "flyokai-zend-db-sql-insertmultiple",   "type": "git", "url": "git@github.fly:flyokai/zend-db-sql-insertmultiple.git" },
+        { "name": "flyokai-amp-mate",                     "type": "git", "url": "git@github.fly:flyokai/amp-mate.git" },
+        { "name": "flyokai-amp-data-pipeline",            "type": "git", "url": "git@github.fly:flyokai/amp-data-pipeline.git" },
+        { "name": "flyokai-amp-csv-reader",               "type": "git", "url": "git@github.fly:flyokai/amp-csv-reader.git" },
+        { "name": "flyokai-amp-opensearch",               "type": "git", "url": "git@github.fly:flyokai/amp-opensearch.git" },
+        { "name": "flyokai-amp-channel-dispatcher",       "type": "git", "url": "git@github.fly:flyokai/amp-channel-dispatcher.git" },
+        { "name": "flyokai-user",                         "type": "git", "url": "git@github.fly:flyokai/user.git" },
+        { "name": "flyokai-oauth-server",                 "type": "git", "url": "git@github.fly:flyokai/oauth-server.git" },
+        { "name": "flyokai-indexer",                      "type": "git", "url": "git@github.fly:flyokai/indexer.git" },
+        { "name": "flyokai-data-service",                 "type": "git", "url": "git@github.fly:flyokai/data-service.git" },
+        { "name": "flyokai-data-service-message",         "type": "git", "url": "git@github.fly:flyokai/data-service-message.git" }
+    ],
+    "autoload": {
+        "files": [
+            "vendor/flyokai/db-schema/bootstrap.php",
+            "vendor/flyokai/search-criteria/bootstrap.php"
+        ],
+        "psr-4": {
+            "Flyokai\\DbSchema\\": "vendor/flyokai/db-schema/src/",
+            "Flyokai\\SearchCriteria\\": "vendor/flyokai/search-criteria/src/"
+        }
+    },
+    "scripts": {
+        "sync-agent-assets": "php scripts/sync-agent-assets.php",
+        "post-install-cmd": ["@sync-agent-assets"],
+        "post-update-cmd":  ["@sync-agent-assets"]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
