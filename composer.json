@@ -35,11 +35,9 @@
         "flyokai/oauth-server": "dev-dev",
         "flyokai/indexer": "dev-dev",
         "flyokai/data-service": "dev-dev",
-        "flyokai/data-service-message": "dev-dev",
-        "flyokai/flyokai": "dev-dev"
+        "flyokai/data-service-message": "dev-dev"
     },
     "repositories": [
-        { "name": "flyokai-flyokai",                      "type": "git", "url": "git@github.fly:flyokai/flyokai.git" },
         { "name": "flyokai-application",                  "type": "git", "url": "git@github.fly:flyokai/application.git" },
         { "name": "flyokai-amphp-injector",               "type": "git", "url": "git@github.fly:flyokai/amphp-injector.git" },
         { "name": "flyokai-revolt-event-loop",            "type": "git", "url": "git@github.fly:flyokai/revolt-event-loop.git" },
